@@ -1,0 +1,10 @@
+## Interface: 80100
+## Title: Boost Helper
+## Author: Deamonized
+## Version: 0.1
+## OptionalDeps: Ace3
+## X-Embeds: Ace3
+
+BoostHelper.xml
+
+main.lua
