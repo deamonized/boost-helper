@@ -1,7 +1,7 @@
 ## Interface: 80100
 ## Title: Boost Helper
 ## Author: Deamonized
-## Version: 0.1
+## Version: 0.1.1
 ## OptionalDeps: Ace3
 ## X-Embeds: Ace3
 

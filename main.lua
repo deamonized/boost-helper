@@ -18,6 +18,8 @@ end
 function BoostHelper:CommandProcessor(input)
     if input == "names" then
         BoostHelper:ListProcessor()
+    else if input == "" then
+        BoostHelper:ListProcessor()
     else
         print("Usage:")
         print("/boosthelper names - Gives a list of all players in the raid")
@@ -29,13 +31,13 @@ function BoostHelper:ListProcessor()
     local raidNamesMessage = ""
     local raidNames = {}
     for i=1,40 do
-        local raiderName = GetRaidRosterInfo(i)
+        local raiderName = GetRaidRosterInfo(i):gsub("%s+", "")
         if raiderName == nil then
             break
         end
         if raiderName:match("-")== nil then
             raiderName = raiderName .. "-"
-            raiderName = raiderName .. GetRealmName()
+            raiderName = raiderName .. GetRealmName():gsub("%s+", "")
         end
         raidNames[#raidNames + 1] = raiderName
     end
