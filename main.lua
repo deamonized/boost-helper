@@ -18,11 +18,8 @@ end
 function BoostHelper:CommandProcessor(input)
     if input == "names" then
         BoostHelper:ListProcessor()
-    else if input == "" then
-        BoostHelper:ListProcessor()
     else
-        print("Usage:")
-        print("/boosthelper names - Gives a list of all players in the raid")
+        BoostHelper:ListProcessor()
     end
 end
 
