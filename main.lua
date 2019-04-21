@@ -28,15 +28,15 @@ function BoostHelper:ListProcessor()
     local raidNamesMessage = ""
     local raidNames = {}
     for i=1,40 do
-        local raiderName = GetRaidRosterInfo(i):gsub("%s+", "")
+        local raiderName = GetRaidRosterInfo(i)
         if raiderName == nil then
             break
         end
         if raiderName:match("-")== nil then
             raiderName = raiderName .. "-"
-            raiderName = raiderName .. GetRealmName():gsub("%s+", "")
+            raiderName = raiderName .. GetRealmName()
         end
-        raidNames[#raidNames + 1] = raiderName
+        raidNames[#raidNames + 1] = string.gsub(raiderName, "%s+", "")
     end
 
     raidNamesMessage = table.concat(raidNames, "\n")
