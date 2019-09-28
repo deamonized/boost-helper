@@ -4,15 +4,12 @@ BoostHelper:RegisterChatCommand("bh",  "CommandProcessor")
 BoostHelper:RegisterChatCommand("boosthelper",  "CommandProcessor")
 
 function BoostHelper:OnInitialize()
-
 end
 
 function BoostHelper:OnEnable()
-
 end
 
 function BoostHelper:OnDisable()
-
 end
 
 function BoostHelper:CommandProcessor(input)
@@ -26,21 +23,19 @@ end
 
 function BoostHelper:ListProcessor()
     local raidNamesMessage = ""
-    local raidNames = {}
     for i=1,40 do
-        local raiderName = GetRaidRosterInfo(i)
-        if raiderName == nil then
-            break
-        end
-        if raiderName:match("-")== nil then
-            raiderName = raiderName .. "-"
-            raiderName = raiderName .. GetRealmName()
-        end
-        raidNames[#raidNames + 1] = string.gsub(raiderName, "%s+", "")
-    end
-
-    raidNamesMessage = table.concat(raidNames, "\n")
-
+		local unit = "raid"..i
+		local name, realm = UnitName(unit)
+		if not realm or realm == "" then 
+			realm = GetRealmName() 
+			realm = string.gsub(realm, "%s+", "")
+		end                    
+		if name then
+			raidNamesMessage = raidNamesMessage..sep..name.."-"..realm
+			sep = ","
+		end 
+	end
+	
     RaidListCopyFrame:Show()
     RaidListCopyFrameScroll:Show()
     RaidListCopyFrameScrollText:Show()
