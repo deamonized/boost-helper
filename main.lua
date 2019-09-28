@@ -23,9 +23,9 @@ end
 
 function BoostHelper:ListProcessor()
     local raidNamesMessage = ""
+    local sep = ""
 	for i=1,40 do
 		local unit = "raid"..i
-		local sep = ""
 		local name, realm = UnitName(unit)
 		if not realm or realm == "" then 
 			realm = GetRealmName() 
