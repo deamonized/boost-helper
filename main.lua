@@ -25,14 +25,15 @@ function BoostHelper:ListProcessor()
     local raidNamesMessage = ""
 	for i=1,40 do
 		local unit = "raid"..i
+		local sep = ""
 		local name, realm = UnitName(unit)
 		if not realm or realm == "" then 
 			realm = GetRealmName() 
 			realm = string.gsub(realm, "%s+", "")
 		end                    
 		if name then
-			sep = ","
 			raidNamesMessage = raidNamesMessage..sep..name.."-"..realm
+			sep = ","
 		end 
 	end
 	
