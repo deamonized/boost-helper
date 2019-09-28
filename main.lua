@@ -23,7 +23,7 @@ end
 
 function BoostHelper:ListProcessor()
     local raidNamesMessage = ""
-    local sep = ""
+    local sep = "" 
 	for i=1,40 do
 		local unit = "raid"..i
 		local name, realm = UnitName(unit)
